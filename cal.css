@@ -1,0 +1,398 @@
+/* =========================================
+   RESET GLOBAL
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 50px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: min(90%, 1200px);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+.header {
+    background: #ff0000;
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.header nav {
+    display: flex;
+    gap: 25px;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.header nav a:hover {
+    color: #ffe4e4;
+}
+
+
+/* =========================================
+   TÍTULO E INSTRUÇÕES
+========================================= */
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #d80000;
+    margin-top: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Formulário */
+form {
+    background-color: #fff;
+    margin: 30px auto;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    max-width: 800px;
+    transition: box-shadow 0.3s ease;
+}
+
+form:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Labels */
+label {
+    font-size: 18px;
+    margin-bottom: 8px;
+    display: block;
+    color: #444;
+    font-weight: 600;
+}
+
+/* Inputs e selects */
+input[type="number"],
+select {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    margin-bottom: 24px;
+    border: 1.8px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 500;
+    color: #333;
+    background-color: #fafafa;
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: #d80000;
+    box-shadow: 0 0 8px rgba(216, 0, 0, 0.3);
+    outline: none;
+}
+
+/* Botão */
+button {
+    background-color: #d80000;
+    color: white;
+    border: none;
+    padding: 14px 0;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(216, 0, 0, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+button:hover {
+    background-color: #b30000;
+    box-shadow: 0 6px 14px rgba(179, 0, 0, 0.6);
+}
+
+button:active {
+    background-color: #8a0000;
+}
+
+/* =========================================
+   ATIVIDADES EXTRAS
+========================================= */
+.card-atividades {
+    background-color: #fff0f0;
+    padding: 25px 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    border: 1.5px solid #f2b8b8;
+    box-shadow: inset 0 0 6px #f9dede;
+    transition: background-color 0.3s ease;
+}
+
+.card-atividades:hover {
+    background-color: #ffe5e5;
+}
+
+.titulo-atividades {
+    font-size: 24px;
+    color: #d80000;
+    margin-bottom: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.subinfo {
+    font-size: 17px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* Lista checkbox */
+.lista-atividades label {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    color: #222;
+    margin-bottom: 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+
+.lista-atividades label:hover {
+    color: #d80000;
+}
+
+.lista-atividades input[type="checkbox"] {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* =========================================
+   SELEÇÃO DE FREQUÊNCIA
+========================================= */
+.select-frequencia {
+    margin-bottom: 30px;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1.8px solid #ccc;
+    font-weight: 500;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.select-frequencia:focus {
+    border-color: #d80000;
+    box-shadow: 0 0 8px rgba(216, 0, 0, 0.3);
+    outline: none;
+}
+
+/* =========================================
+   RESULTADO
+========================================= */
+#resultado {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: #e6f4ea;
+    border: 1.5px solid #3c763d;
+    color: #2c5d2d;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 19px;
+    box-shadow: 0 4px 18px rgba(44, 93, 45, 0.3);
+    font-weight: 600;
+}
+
+#resultado h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    color: #27632a;
+}
+
+#resultado p {
+    margin: 12px 0;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* Aviso */
+#resultado > div {
+    background: #fff8e6;
+    padding: 15px 20px;
+    border-left: 5px solid #f39c12;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #7a5a12;
+    border-radius: 6px;
+    text-align: left;
+    box-shadow: 0 1px 6px rgba(243, 156, 18, 0.3);
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+@media (max-width: 768px) {
+    form {
+        padding: 25px 20px;
+        margin: 20px;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 12px 0;
+    }
+
+    .header-flex {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        margin-left: 12px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 0;
+    }
+}
+
+
+/* =========================================
+   RESULTADO
+========================================= */
+#resultado {
+    margin-top: 40px;
+    padding: 30px 35px;
+    background-color: #e6f4ea;
+    border: 1.5px solid #3c763d;
+    color: #2c5d2d;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 0 4px 18px rgba(44, 93, 45, 0.3);
+    font-weight: 600;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Título principal */
+#resultado h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: 800;
+    color: #27632a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Seções do resultado */
+#resultado section {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* Informações básicas (IMC, TMB, GET etc) */
+#resultado section.info-basica p {
+    margin: 8px 0;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+/* Calorias Totais */
+#resultado section.calorias-totais h3,
+#resultado section.macronutrientes h3 {
+    font-size: 24px;
+    color: #1f4d1f;
+    margin-bottom: 15px;
+    font-weight: 700;
+    border-bottom: 2px solid #4caf50;
+    padding-bottom: 6px;
+}
+
+#resultado .valor-calorias {
+    font-size: 28px;
+    font-weight: 900;
+    color: #205020;
+    margin-bottom: 8px;
+}
+
+#resultado .decisao-texto {
+    font-weight: 600;
+    font-size: 16px;
+    color: #3c763d;
+}
+
+/* Macronutrientes */
+#resultado section.macronutrientes p {
+    margin: 10px 0;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+/* Aviso de segurança */
+#resultado .aviso-seguranca {
+    background: #fff8e6;
+    padding: 15px 20px;
+    border-left: 5px solid #f39c12;
+    font-weight: 600;
+    color: #7a5a12;
+    border-radius: 6px;
+    text-align: left;
+    box-shadow: 0 1px 6px rgba(243, 156, 18, 0.3);
+    max-width: 700px;
+    margin: 0 auto;
+}

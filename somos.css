@@ -1,0 +1,208 @@
+/* =========================================
+   RESET GLOBAL
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f9f9f9;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+.container {
+    width: min(90%, 1200px);
+    margin: auto;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+.header {
+    background: #ff0000;
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.header nav {
+    display: flex;
+    gap: 25px;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.header nav a:hover {
+    color: #ffe4e4;
+}
+
+/* =========================================
+   HERO SIMPLES
+========================================= */
+.hero {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #d40000, #ff0000);
+    color: white;
+    text-align: center;
+    border-radius: 0 0 50px 50px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: #ffe1e1;
+    margin-top: 10px;
+}
+
+/* =========================================
+   SEÇÃO "QUEM SOMOS"
+========================================= */
+.quem-somos {
+    padding: 80px 20px;
+}
+
+.qs-top {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.qs-top .pill-light {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ffe5e5;
+    color: #ff0000;
+    border-radius: 100px;
+    font-weight: bold;
+}
+
+.qs-top h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #d40000;
+    margin-top: 15px;
+}
+
+.qs-subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* =========================================
+   GRID DE EQUIPE
+========================================= */
+.qs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.qs-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: .3s ease;
+    text-align: center;
+}
+
+.qs-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.qs-img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.qs-text h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.qs-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+@media (max-width: 992px) {
+    .qs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .qs-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .qs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .qs-top h2 {
+        font-size: 32px;
+    }
+
+    .qs-card {
+        padding: 15px;
+    }
+
+    .qs-text h3 {
+        font-size: 20px;
+    }
+
+    .qs-text p {
+        font-size: 14px;
+    }
+}

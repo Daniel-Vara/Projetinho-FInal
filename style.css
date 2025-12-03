@@ -1,0 +1,360 @@
+/* =========================================
+   RESET GLOBAL
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+/* =========================================
+   CONTAINERS
+========================================= */
+.container {
+    width: min(90%, 1200px);
+    margin: auto;
+}
+
+/* =========================================
+   TIPOGRAFIA E ELEMENTOS GERAIS
+========================================= */
+.gradient-text {
+    background: linear-gradient(45deg, #ff0000, #ff6a00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+}
+
+.pill,
+.pill-light {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.pill {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    backdrop-filter: blur(4px);
+}
+
+.pill-light {
+    background: #ffe5e5;
+    color: #ff0000;
+}
+
+.highlight {
+    color: #ff0000;
+    font-weight: 700;
+}
+
+/* =========================================
+   BOTÕES
+========================================= */
+.btn {
+    padding: 15px 32px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.btn a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*** VARIAÇÕES ***/
+.btn-white {
+    background: white;
+    color: #ff0000;
+}
+
+.btn-white:hover {
+    background: #ffe8e8;
+    transform: translateY(-2px);
+}
+
+.btn-red {
+    background: #ff0000;
+    color: white;
+}
+
+.btn-red:hover {
+    background: #d00000;
+    transform: translateY(-2px);
+}
+
+.btn-white-red {
+    background: white;
+    color: #ff0000;
+}
+
+.btn-white-red:hover {
+    background: #ffe5e5;
+}
+
+.btn-red-dark {
+    background: #b00000;
+    color: white;
+}
+
+.btn-red-dark:hover {
+    background: #c70000;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+.header {
+    background: #ff0000;
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.header nav {
+    display: flex;
+    gap: 25px;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.header nav a:hover {
+    color: #ffe4e4;
+}
+
+/* =========================================
+   HERO
+========================================= */
+.hero {
+    padding: 140px 20px;
+    background: linear-gradient(135deg, #c70000, #ff0000);
+    color: white;
+    text-align: center;
+    border-radius: 0 0 45px 45px;
+    box-shadow: 0 10px 40px rgba(255,0,0,0.3);
+}
+
+.hero h1 {
+    font-size: 55px;
+    font-weight: 800;
+    margin: 20px 0;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+/* =========================================
+   SOBRE NÓS
+========================================= */
+.sobre {
+    padding: 90px 20px;
+}
+
+.sobre-box {
+    background: white;
+    padding: 55px;
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.09);
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.title-icon {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #ff0000, #ff3333);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+}
+
+.title-icon i {
+    color: white;
+    font-size: 26px;
+}
+
+.sobre-text p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* ESTATÍSTICAS */
+.stats {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    gap: 20px;
+}
+
+.stat-number {
+    font-size: 38px;
+    font-weight: 800;
+}
+
+/* =========================================
+   SERVIÇOS
+========================================= */
+.servicos {
+    padding: 90px 20px;
+}
+
+.servicos-top {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid #ffd5d5;
+    box-shadow: 0 12px 25px rgba(255,0,0,0.18);
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(255,0,0,0.25);
+}
+
+/* =========================================
+   CTA FINAL
+========================================= */
+.cta {
+    margin: 70px 20px;
+    padding: 80px 20px;
+    background: #ff0000;
+    border-radius: 25px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(255,0,0,0.28);
+}
+
+.cta h2 {
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+.cta-subtitle {
+    font-size: 20px;
+    opacity: .9;
+    margin-bottom: 35px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 45px;
+}
+
+.cta-benefits {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sobre-box {
+        padding: 35px;
+    }
+
+    .cta h2 {
+        font-size: 30px;
+    }
+}
