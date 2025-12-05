@@ -59,3 +59,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
     buscarBtn.addEventListener("click", buscarAcademias);
 });
+
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.getElementById('main-nav');
+const navLinks = nav.querySelectorAll('a');
+const menuIcon = menuToggle.querySelector('i');
+
+// Abrir/fechar menu e alternar ícone
+menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+
+    if(nav.classList.contains('open')) {
+        menuIcon.classList.remove('bi-list');
+        menuIcon.classList.add('bi-x');
+    } else {
+        menuIcon.classList.remove('bi-x');
+        menuIcon.classList.add('bi-list');
+    }
+});
+
+// Fecha menu ao clicar em um link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuIcon.classList.remove('bi-x');
+        menuIcon.classList.add('bi-list');
+    });
+});
+
+// Fecha menu ao clicar fora
+document.addEventListener('click', (e) => {
+    if(!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+        nav.classList.remove('open');
+        menuIcon.classList.remove('bi-x');
+        menuIcon.classList.add('bi-list');
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    const navLinks = nav.querySelectorAll('a');
+    const menuIcon = menuToggle.querySelector('i');
+
+    // Abrir/fechar menu
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        menuIcon.classList.toggle('bi-list');
+        menuIcon.classList.toggle('bi-x');
+    });
+
+    // Fechar ao clicar em link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('open');
+            menuIcon.classList.add('bi-list');
+            menuIcon.classList.remove('bi-x');
+        });
+    });
+
+    // Fechar ao clicar fora
+    document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+            nav.classList.remove('open');
+            menuIcon.classList.add('bi-list');
+            menuIcon.classList.remove('bi-x');
+        }
+    });
+});

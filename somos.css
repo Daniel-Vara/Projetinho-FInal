@@ -1,16 +1,12 @@
-/* ===========================
-   RESET & CONFIGURAÇÕES GERAIS (Baseado em style_v5.css)
-   =========================== */
-
 :root {
-    --color-primary: #ef4444; /* Vermelho/Laranja Sutil para destaque */
-    --color-secondary: #f97316; /* Laranja secundário */
-    --color-background: #1c1c1c; /* Fundo escuro principal (Cinza Neutro) */
-    --color-background-light: #2c2c2c; /* Fundo de seção/card mais claro (Cinza Neutro) */
-    --color-text-light: #f3f4f6; /* Texto claro */
-    --color-text-dark: #a0a0a0; /* Texto secundário (Cinza Neutro) */
+    --color-primary: #ef4444;
+    --color-secondary: #f97316;
+    --color-background: #1c1c1c;
+    --color-background-light: #2c2c2c;
+    --color-text-light: #f3f4f6;
+    --color-text-dark: #a0a0a0;
     --color-white: #ffffff;
-    --color-gray-border: #404040; /* Borda (Cinza Neutro) */
+    --color-gray-border: #404040;
 }
 
 * {
@@ -20,11 +16,10 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--color-text-light);
     background-color: var(--color-background);
-    overflow-x: hidden;
 }
 
 a {
@@ -34,7 +29,6 @@ a {
 
 img {
     max-width: 100%;
-    height: auto;
     display: block;
 }
 
@@ -42,14 +36,6 @@ img {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
-}
-
-.section-title {
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: var(--color-text-light);
-    letter-spacing: -0.5px;
 }
 
 .pill-light {
@@ -61,14 +47,11 @@ img {
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
     border: 1px solid var(--color-gray-border);
+    margin-bottom: 16px;
 }
 
-/* ===========================
-   HEADER (Reutilizado da v5)
-   =========================== */
+/* ========== HEADER ========== */
 
 .header {
     background-color: var(--color-background-light);
@@ -76,7 +59,7 @@ img {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .header-flex {
@@ -89,21 +72,20 @@ img {
     font-size: 24px;
     font-weight: 900;
     color: var(--color-primary);
-    letter-spacing: -0.5px;
 }
 
 nav {
     display: flex;
     gap: 24px;
+    align-items: center;
 }
 
 nav a {
     color: var(--color-text-light);
     font-weight: 500;
     font-size: 15px;
-    transition: color 0.3s ease;
-    padding: 8px 0;
     position: relative;
+    transition: color 0.3s;
 }
 
 nav a::after {
@@ -114,7 +96,7 @@ nav a::after {
     width: 0;
     height: 3px;
     background-color: var(--color-primary);
-    transition: width 0.3s ease;
+    transition: width 0.3s;
 }
 
 nav a:hover {
@@ -125,9 +107,18 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* ===========================
-   HERO INTERNO
-   =========================== */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+
+/* ========== HERO ========== */
 
 .hero-inner {
     background-color: var(--color-background);
@@ -140,65 +131,45 @@ nav a:hover::after {
     font-weight: 900;
     color: var(--color-white);
     margin-bottom: 10px;
-    line-height: 1.2;
-    letter-spacing: -1px;
 }
 
 .hero-subtitle {
     font-size: 18px;
     color: var(--color-text-dark);
-    font-weight: 400;
 }
 
-/* ===========================
-   QUEM SOMOS / EQUIPE (Layout Horizontal)
-   =========================== */
+/* ========== QUEM SOMOS ========== */
 
 .quem-somos {
     padding: 80px 24px;
     background-color: var(--color-background-light);
 }
 
-.qs-top {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 60px;
-}
-
-.qs-subtitle {
-    font-size: 18px;
-    color: var(--color-text-dark);
-}
-
 .qs-grid {
-    /* Não precisa de grid aqui, os cards já são empilhados por padrão */
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 
 .qs-card {
+    display: flex;
     background-color: var(--color-background);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     border: 1px solid var(--color-gray-border);
-    
-    /* Novo Layout Horizontal */
-    display: flex;
-    align-items: stretch; /* Garante que a imagem e o texto tenham a mesma altura */
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .qs-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(239, 68, 68, 0.15);
+    box-shadow: 0 15px 40px rgba(239,68,68,0.15);
 }
 
 .qs-img {
-    width: 350px; /* Largura fixa para a imagem */
-    height: 250px; /* Altura fixa para a imagem */
-    flex-shrink: 0; /* Impede que a imagem encolha */
+    width: 350px;
+    height: 250px;
+    flex-shrink: 0;
     overflow: hidden;
 }
 
@@ -206,7 +177,7 @@ nav a:hover::after {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s;
 }
 
 .qs-card:hover .qs-img img {
@@ -215,7 +186,7 @@ nav a:hover::after {
 
 .qs-text {
     padding: 25px;
-    flex-grow: 1; /* Permite que o texto ocupe o espaço restante */
+    flex-grow: 1;
 }
 
 .qs-text h3 {
@@ -231,133 +202,45 @@ nav a:hover::after {
     line-height: 1.6;
 }
 
-/* ===========================
-   RESPONSIVIDADE
-   =========================== */
+/* ========== RESPONSIVIDADE ========== */
 
 @media (max-width: 992px) {
-    /* Em telas menores, o layout volta a ser vertical */
     .qs-card {
         flex-direction: column;
     }
-
     .qs-img {
         width: 100%;
-        height: 250px; /* Volta para a altura fixa */
+        height: 250px;
     }
 }
 
 @media (max-width: 768px) {
-    .header-flex {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    .hero-inner h1 {
-        font-size: 36px;
-    }
-
-    .section-title {
-        font-size: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        font-size: 20px;
-    }
-
-    nav a {
-        font-size: 13px;
-    }
-
-    .hero-inner h1 {
-        font-size: 28px;
-    }
-
-    .section-title {
-        font-size: 24px;
-    }
-
-    .qs-text h3 {
-        font-size: 20px;
-    }
-}
-
-/* ===========================
-   MENU HAMBURGUER
-   =========================== */
-
-.menu-toggle {
-    display: none; /* Esconde o botão por padrão */
-    background: none;
-    color: var(--color-primary);
-    font-size: 30px;
-    padding: 0;
-    line-height: 1;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-/* Otimização da Responsividade e Menu Hamburguer */
-@media (max-width: 768px) {
-    .header-flex {
-        flex-direction: row; /* Volta para linha para logo e botão */
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 24px;
-    }
-
     .menu-toggle {
-        display: block; /* Mostra o botão hamburguer */
+        display: block;
     }
-
+}
     nav {
-        /* Estilo do menu hamburguer */
         position: fixed;
         top: 0;
-        right: -100%; /* Esconde o menu fora da tela */
+        right: -100%;
         width: 70%;
         max-width: 300px;
         height: 100%;
         background-color: var(--color-background-light);
         flex-direction: column;
         padding: 80px 20px 20px;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
         transition: right 0.3s ease-in-out;
-        z-index: 1000;
         gap: 10px;
     }
-
+    nav.open {
+        right: 0;
+    }
     nav a {
         padding: 15px 0;
         border-bottom: 1px solid var(--color-gray-border);
-        width: 100%;
     }
 
-    nav.open {
-        right: 0; /* Mostra o menu */
-    }
 
-    /* Oculta os links no header-flex quando o menu está fechado */
-    .header-flex > nav > a {
-        display: none;
-    }
 
-    /* Otimização de outras seções */
-    .hero-inner h1 {
-        font-size: 42px;
-    }
-}
 
-@media (max-width: 480px) {
-    .hero-inner h1 {
-        font-size: 32px;
-    }
-}

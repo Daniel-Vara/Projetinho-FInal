@@ -76,8 +76,8 @@ function adicionarTreino(nome, descricao, series, observacao, imagem, video) {
   botaoRemover.textContent = 'Remover';
   botaoRemover.classList.add('btn-card');
   botaoRemover.addEventListener('click', () => {
-      if (card.parentElement) {
-          card.parentElement.removeChild(card);
+      if (card) {
+          card.remove();
       }
 
       let index = treinosProcurados.indexOf(nome);
@@ -224,3 +224,52 @@ procurar.addEventListener('click', () => {
 });
 
 
+// ===========================
+// MENU HAMBÚRGUER RESPONSIVO
+// ===========================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Criar elementos do menu hambúrguer
+    const headerFlex = document.querySelector('.header-flex');
+    const hamburger = document.createElement('div');
+    hamburger.className = 'hamburger';
+    
+    for (let i = 0; i < 3; i++) {
+        const span = document.createElement('span');
+        hamburger.appendChild(span);
+    }
+    
+    // Inserir o hambúrguer antes do logo (ou ajuste conforme necessário)
+    const logo = document.querySelector('.logo');
+    headerFlex.insertBefore(hamburger, logo.nextSibling);
+    
+    // Adicionar funcionalidade ao menu hambúrguer
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        document.querySelector('nav').classList.toggle('active');
+        document.body.style.overflow = document.querySelector('nav').classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Fechar menu ao clicar em um link
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            document.querySelector('nav').classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Fechar menu ao clicar fora (para telas grandes)
+    document.addEventListener('click', function(event) {
+        const nav = document.querySelector('nav');
+        const isClickInsideNav = nav.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+        
+        if (!isClickInsideNav && !isClickOnHamburger && nav.classList.contains('active')) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});

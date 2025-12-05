@@ -375,3 +375,53 @@ select:focus {
         font-size: 24px;
     }
 }
+
+
+/* Ícone hamburguer padrão */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--color-text-light);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-flex {
+        position: relative;
+    }
+
+    /* Mostra ícone */
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        z-index: 2000;
+    }
+
+    /* Oculta nav original e transforma em menu mobile */
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* altura do header */
+        right: 0;
+        background-color: var(--color-background-light);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        min-width: 200px;
+        z-index: 1000;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    nav a {
+        text-align: left; /* Links alinhados à esquerda dentro do menu */
+        padding: 10px 0;
+    }
+}
