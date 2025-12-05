@@ -222,3 +222,5 @@ procurar.addEventListener('click', () => {
       alert('Treino não encontrado. Tente novamente.');
   }
 });
+
+

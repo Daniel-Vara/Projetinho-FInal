@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Procura de Academias</title>
+    <title>Academia - SportLife Hub</title>
 
     <!-- Fonte Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,10 +20,13 @@
     <div class="container header-flex">
         <div class="logo">SportLife Hub</div>
 
-        <nav>
+        <nav id="main-nav">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu">
+                <i class="bi bi-list"></i>
+            </button>
             <a href="index.html">Início</a>
             <a href="quem-somos.html">Quem Somos</a>
-            <a href="Academia.html">Academias</a>
+            <a href="Academia.html" class="active">Academias</a>
             <a href="calorias.html">Medir Kal</a>
             <a href="listaDeTreino.html">Montar Treino</a>
         </nav>
@@ -32,7 +35,7 @@
 
     <div class="container">
 
-        <div class="title-group" style="margin-top: 40px;">
+        <div class="title-group">
             <h1>Buscador de Academias</h1>
             <p class="lead">Pesquise academias por cidade e modalidade</p>
         </div>
@@ -69,7 +72,7 @@
                 </div>
 
                 <div class="col-12">
-                    <button id="buscarGPS" class="btn btn-red">Buscar</button>
+                    <button id="buscarGPS" class="btn btn-primary">Buscar</button>
                 </div>
 
             </div>
@@ -82,5 +85,6 @@
 
     <!-- Seu JavaScript -->
     <script src="script.js"></script>
+    <script src="menu.js"></script>
 </body>
 </html>

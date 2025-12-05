@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         lista.forEach((a, index) => {
             const card = document.createElement("div");
-            card.classList.add("resultado-card");
+            card.classList.add("academia-card");
 
             // Animação suave de entrada
             card.style.animation = `fadeIn 0.4s ease forwards`;
@@ -48,9 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             card.innerHTML = `
                 <h3>${a.nome}</h3>
-                <p><strong>📍 Cidade:</strong> ${a.cidade}</p>
-                <p><strong>🔥 Modalidade:</strong> ${a.modalidade}</p>
-                <p><strong>🏠 Endereço:</strong> ${a.endereco}</p>
+                <p class="detail"><span>📍</span> Cidade: ${a.cidade}</p>
+                <p class="detail"><span>🔥</span> Modalidade: ${a.modalidade}</p>
+                <p class="detail"><span>🏠</span> Endereço: ${a.endereco}</p>
             `;
 
             resultadosDiv.appendChild(card);

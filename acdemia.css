@@ -1,6 +1,18 @@
-/* =========================================
-   RESET GLOBAL
-========================================= */
+/* ===========================
+   RESET & CONFIGURAÇÕES GERAIS (Baseado em style_v5.css)
+   =========================== */
+
+:root {
+    --color-primary: #ef4444; /* Vermelho/Laranja Sutil para destaque */
+    --color-secondary: #f97316; /* Laranja secundário */
+    --color-background: #1c1c1c; /* Fundo escuro principal (Cinza Neutro) */
+    --color-background-light: #2c2c2c; /* Fundo de seção/card mais claro (Cinza Neutro) */
+    --color-text-light: #f3f4f6; /* Texto claro */
+    --color-text-dark: #a0a0a0; /* Texto secundário (Cinza Neutro) */
+    --color-white: #ffffff;
+    --color-gray-border: #404040; /* Borda (Cinza Neutro) */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,27 +20,45 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #fafafa;
-    color: #1a1a1a;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
+    color: var(--color-text-light);
+    background-color: var(--color-background);
+    overflow-x: hidden;
+    padding-bottom: 50px; /* Espaço no final da página */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, .btn {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
 .container {
-    width: min(90%, 1200px);
-    margin: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
-/* =========================================
-   HEADER - LEMBRANDO A HOME PRINCIPAL
-========================================= */
+/* ===========================
+   HEADER (Reutilizado da v5)
+   =========================== */
+
 .header {
-    background: #ff0000;
-    padding: 18px 0;
+    background-color: var(--color-background-light);
+    padding: 16px 0;
     position: sticky;
     top: 0;
-    z-index: 999;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .header-flex {
@@ -38,230 +68,248 @@ body {
 }
 
 .logo {
-    color: white;
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: -1px;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--color-primary);
+    letter-spacing: -0.5px;
 }
 
-.header nav {
+nav {
     display: flex;
-    gap: 25px;
+    gap: 24px;
 }
 
-.header nav a {
-    color: white;
-    text-decoration: none;
+nav a {
+    color: var(--color-text-light);
     font-weight: 500;
-    transition: .3s;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    padding: 8px 0;
+    position: relative;
 }
 
-.header nav a:hover {
-    color: #ffe4e4;
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
 }
 
-/* Responsivo */
-@media screen and (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .site-nav a {
-        margin-left: 0;
-        margin-right: 15px;
-    }
+nav a:hover {
+    color: var(--color-primary);
 }
-/* =========================================
-   TÍTULO PRINCIPAL
-========================================= */
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ===========================
+   TÍTULO E FORMULÁRIO
+   =========================== */
+
 .title-group {
+    padding: 50px 0 30px;
     text-align: center;
-    margin-top: 45px;
-    margin-bottom: 10px;
 }
 
 .title-group h1 {
     font-size: 42px;
-    font-weight: 800;
-    color: #d40000;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 8px;
 }
 
-.title-group .lead {
-    color: #555;
+.lead {
     font-size: 18px;
-    margin-top: 5px;
+    color: var(--color-text-dark);
 }
 
-/* =========================================
-   CARD PRINCIPAL DO FORMULÁRIO
-========================================= */
 .card {
-    background: white;
-    padding: 40px;
-    border-radius: 22px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    margin-top: 35px;
-    animation: fadeIn 0.6s ease;
+    background-color: var(--color-background-light);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
 }
 
-/* GRID */
 .grid {
     display: flex;
-    gap: 25px;
     flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end; /* Alinha os itens na parte inferior */
 }
 
 .col-4 {
-    width: calc(33.333% - 15px);
+    flex: 1 1 300px; /* Cresce e encolhe, com base de 300px */
 }
 
 .col-12 {
-    width: 100%;
-    text-align: center;
+    flex: 1 1 auto; /* Ocupa o espaço restante */
 }
 
-/* =========================================
-   LABELS / INPUTS
-========================================= */
+/* ===========================
+   ELEMENTOS DE FORMULÁRIO
+   =========================== */
+
 label {
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 6px;
     display: block;
-}
-
-input,
-select {
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    border: 2px solid #e2e2e2;
-    background: #fff;
-    font-size: 15px;
-    transition: .25s ease;
-}
-
-input:focus,
-select:focus {
-    border-color: #ff0000;
-    box-shadow: 0 0 0 3px rgba(255,0,0,0.15);
-    outline: none;
-}
-
-/* =========================================
-   BOTÕES
-========================================= */
-.btn {
-    padding: 15px 40px;
-    border-radius: 50px;
-    background: #ff0000;
-    color: white;
-    border: none;
-    font-weight: 700;
-    font-size: 17px;
-    cursor: pointer;
-    transition: .3s ease;
-}
-
-.btn-red {
-    background: #ff0000;
-}
-
-.btn-red:hover {
-    background: #d10000;
-    transform: translateY(-3px);
-}
-
-/* =========================================
-   RESULTADOS
-========================================= */
-.resultados {
-    margin-top: 45px;
-}
-
-.resultado-card {
-    background: white;
-    padding: 25px;
-    border-radius: 18px;
-    margin-bottom: 25px;
-    box-shadow: 0 8px 25px rgba(255,0,0,0.15);
-    animation: fadeInUp 0.5s ease forwards;
-    border-left: 5px solid #ff0000;
-}
-
-.resultado-card h3 {
-    font-size: 22px;
-    font-weight: 700;
-    color: #d00000;
-    margin-bottom: 10px;
-}
-
-.resultado-card p {
-    margin-bottom: 6px;
-    color: #444;
-}
-
-.no-results {
-    text-align: center;
-    padding: 20px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
-    color: #d10000;
+    color: var(--color-text-light);
+    margin-bottom: 8px;
 }
 
-/* =========================================
-   ANIMAÇÕES
-========================================= */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+input[type="text"], select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-gray-border);
+    border-radius: 8px;
+    background-color: var(--color-background);
+    color: var(--color-text-light);
+    font-size: 16px;
+    appearance: none; /* Remove estilo padrão do select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: border-color 0.3s ease;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
 }
 
-/* =========================================
+select {
+    /* Adiciona um ícone de seta customizado para o select */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23a0a0a0'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+/* Estilo para o botão de busca */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #dc2626;
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* ===========================
+   RESULTADOS (Estilo base para a área que o JS irá preencher)
+   =========================== */
+
+.resultados {
+    padding: 20px 0;
+    color: var(--color-text-dark);
+    font-size: 16px;
+}
+
+/* ===========================
    RESPONSIVIDADE
-========================================= */
-@media (max-width: 992px) {
-    .col-4 {
-        width: calc(50% - 15px);
+   =========================== */
+
+@media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column;
+        gap: 15px;
     }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
     .title-group h1 {
-        font-size: 34px;
+        font-size: 32px;
+    }
+
+    .grid {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .col-4 {
+        flex: 1 1 100%;
     }
 }
 
-@media (max-width: 600px) {
-    .col-4 {
-        width: 100%;
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
     }
 
-    .card {
-        padding: 25px;
+    nav a {
+        font-size: 13px;
     }
+}
 
-    input,
-    select {
-        font-size: 14px;
-    }
+/* ===========================
+   CARDS DE RESULTADO (Gerados pelo JS)
+   =========================== */
 
-    .title-group h1 {
-        font-size: 28px;
-    }
+.academia-card {
+    background-color: var(--color-background-light);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-left: 5px solid var(--color-primary); /* Destaque lateral */
+    transition: transform 0.3s ease;
+}
+
+.academia-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.academia-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--color-gray-border);
+    padding-bottom: 10px;
+}
+
+.academia-card p {
+    font-size: 16px;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.academia-card p span {
+    font-weight: 600;
+    color: var(--color-text-light);
+    margin-right: 5px;
+}
+
+/* Estilo para os ícones (emojis) */
+.academia-card p span:first-child {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+/* Ajuste para o contêiner de resultados */
+.resultados {
+    padding: 20px 0;
+    color: var(--color-text-dark);
+    font-size: 16px;
 }
