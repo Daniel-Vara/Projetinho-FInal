@@ -1,275 +1,84 @@
-// --- ELEMENTOS DO DOM ---
 const procurar = document.getElementById('procurarTreino');
 const treinoInput = document.getElementById('treino');
+const listaProcurados = document.getElementById('procurados');
 const areaTreino = document.getElementById('treino2');
-const listaTreinos = document.getElementById('procurados');
 
-// --- ARRAYS DE CONTROLE ---
-const treinosProcurados = [];
-const treinosAdicionados = [];
+// Lista de exercícios
+const exercicios = [
+    { nome: 'Supino Inclinado', descricao: 'Deite no banco inclinado, segure a barra, abaixe até o peito e empurre de volta', series: '3 séries de 10 repetições', observacao: 'Peso: Moderado', imagem: './img/supino.png', video: 'https://youtube.com/shorts/NrurrUZ9bfw?si=lxbkKnMSPIyEiP7l' },
+    { nome: 'Agachamento Livre', descricao: 'Fique em pé com os pés na largura dos ombros, agache e retorne', series: '4 séries de 12 repetições', observacao: 'Peso: Leve a Moderado', imagem: './img/agachamento.png', video: 'https://youtube.com/shorts/8V2SwkHTLek?si=LeS0jGNWqUOoJT-P' },
+    { nome: 'Peck Deck', descricao: 'Sente-se na máquina e junte os braços à frente do peito', series: '3 séries de 12-15', observacao: 'Peso: Leve a Moderado', imagem: './img/peck-deck.png', video: 'https://youtube.com/shorts/rOrr4kSwQpE?si=JmpAGKgH7b3e3dot' },
+    { nome: 'Desenvolvimento com Halteres', descricao: 'Empurre halteres acima da cabeça sentado', series: '3 séries de 10-12', observacao: 'Peso: Moderado', imagem: './img/desenvolvimento.png', video: 'https://youtube.com/shorts/Wywt3mN-6RA?si=OVi7fczoJfgBDwle' },
+    { nome: 'Levantamento Terra', descricao: 'Levante a barra mantendo postura correta', series: '4 séries de 6-8', observacao: 'Peso: Pesado', imagem: './img/terra.png', video: 'https://youtube.com/shorts/oSaXuwqLpWc?si=jZjfumXlELBCZCmJ' },
+    { nome: 'Barra Fixa', descricao: 'Puxe o corpo até o queixo ultrapassar a barra', series: '3 séries de 8-10', observacao: 'Peso corporal', imagem: './img/barra.png', video: 'https://youtube.com/shorts/BYYxtz9MtDc?si=G9_F307teGa4smK8' },
+    { nome: 'Flexão de Braço', descricao: 'Empurre o corpo para cima com as mãos no chão', series: '4 séries de 12-15', observacao: 'Peso corporal', imagem: './img/flexao.png', video: 'https://youtube.com/shorts/pRzxpe5_LLk?si=BHjJ6aWQ-tfgd-1w' },
+    { nome: 'Abdominal', descricao: 'Eleve o tronco em direção aos joelhos', series: '3 séries de 15-20', observacao: 'Peso corporal', imagem: './img/abdominal.png', video: 'https://youtube.com/shorts/kiqKO0tTFVw?si=XryMhiVBmkr12nJC' },
+    { nome: 'Prancha', descricao: 'Mantenha o corpo reto apoiado nos antebraços', series: '3 séries de 30-60s', observacao: 'Peso corporal', imagem: './img/prancha.png', video: 'https://youtube.com/shorts/jZY0XzzXleI?si=9CLTzjWM7PD0jkky' },
+    { nome: 'Pull-Over com Halteres', descricao: 'Abaixe o haltere atrás da cabeça e retorne', series: '3 séries de 10-12', observacao: 'Peso moderado', imagem: './img/pull-over.png', video: 'https://youtube.com/shorts/Datv2L6t3-4?si=poTimOvBD5gY4-Zt' },
+    { nome: 'Elevação Lateral', descricao: 'Levante halteres até os ombros', series: '3 séries de 12-15', observacao: 'Peso leve a moderado', imagem: './img/lateral.png', video: 'https://youtube.com/shorts/nhQ4mdk0TmM?si=86dPDwEEfiEen18l' },
+    { nome: 'Rosca Direta', descricao: 'Levante a barra até os ombros', series: '3 séries de 10-12', observacao: 'Peso moderado', imagem: './img/rosca.png', video: 'https://youtube.com/shorts/ojlJslnaae4?si=R8wug0pa47gCvCcj' }
+];
 
-// --- FUNÇÃO PARA CRIAR E ADICIONAR CARD ---
-function adicionarTreino(nome, descricao, series, observacao, imagem, video) {
-    treinoInput.value = '';
-
-  if (treinosProcurados.includes(nome) || treinosAdicionados.includes(nome)) {
-    alert(`${nome} já está na lista!`);
-    return;
-  }
-
-  treinosProcurados.push(nome);
-
-  // CARD
-  const card = document.createElement('div');
-  card.classList.add('card');
-
-  // IMAGEM
-  const img = document.createElement('img');
-  img.src = imagem || 'img/placeholder.jpg';
-  img.alt = nome;
-
-  // TEXTOS
-  const h3 = document.createElement('h3');
-  h3.textContent = nome;
-
-  const pDescricao = document.createElement('p');
-  pDescricao.textContent = descricao;
-
-  const pSeries = document.createElement('p');
-  pSeries.textContent = series;
-
-  const pObservacao = document.createElement('p');
-  pObservacao.textContent = observacao;
-
-  // CONTAINER DOS BOTÕES
-  const btnContainer = document.createElement('div');
-  btnContainer.classList.add('card-buttons');
-
-  // BOTÃO ASSISTIR
-  const botaoAssistir = document.createElement('button');
-  botaoAssistir.classList.add('btn-card');
-  botaoAssistir.textContent = "Vídeo";
-  botaoAssistir.addEventListener('click', () => {
-      window.open(video, '_blank');
-  });
-
-  // BOTÃO ADICIONAR
-  const botaoAdicionar = document.createElement('button');
-  botaoAdicionar.textContent = 'Adicionar';
-  botaoAdicionar.classList.add('btn-card');
-  botaoAdicionar.addEventListener('click', () => {
-
-      if (treinosAdicionados.includes(nome)) {
-          alert(`${nome} já está na sua lista de treino!`);
-          return;
-      }
-
-      areaTreino.appendChild(card);
-      treinosAdicionados.push(nome);
-
-      const index = treinosProcurados.indexOf(nome);
-      if (index !== -1) treinosProcurados.splice(index, 1);
-  });
-
-  // BOTÃO REMOVER
-  const botaoRemover = document.createElement('button');
-  botaoRemover.textContent = 'Remover';
-  botaoRemover.classList.add('btn-card');
-  botaoRemover.addEventListener('click', () => {
-      if (card) {
-          card.remove();
-      }
-
-      let index = treinosProcurados.indexOf(nome);
-      if (index !== -1) treinosProcurados.splice(index, 1);
-
-      index = treinosAdicionados.indexOf(nome);
-      if (index !== -1) treinosAdicionados.splice(index, 1);
-  });
-
-  // MONTAGEM DOS BOTÕES
-  btnContainer.appendChild(botaoAssistir);
-  btnContainer.appendChild(botaoAdicionar);
-  btnContainer.appendChild(botaoRemover);
-
-  // MONTAGEM DO CARD
-  card.appendChild(img);
-  card.appendChild(h3);
-  card.appendChild(pDescricao);
-  card.appendChild(pSeries);
-  card.appendChild(pObservacao);
-  card.appendChild(btnContainer);
-
-  // ADICIONA NA LISTA
-  listaTreinos.appendChild(card);
+// Normalizar texto
+function normalizarTexto(texto) {
+    return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
+// Criar card
+function criarCard(exercicio, comAdicionar = true) {
+    const template = document.getElementById("card-template");
+    const card = template.content.cloneNode(true);
 
+    card.querySelector(".card-img").src = exercicio.imagem;
+    card.querySelector(".card-img").alt = exercicio.nome;
+    card.querySelector(".card-nome").textContent = exercicio.nome;
+    card.querySelector(".card-desc").textContent = exercicio.descricao;
+    card.querySelector(".card-series").textContent = exercicio.series;
+    card.querySelector(".card-obs").textContent = exercicio.observacao;
 
-// --- SISTEMA DE BUSCA ---
-procurar.addEventListener('click', () => {
-  const treino = treinoInput.value.trim().toLowerCase();
+    // Botão vídeo
+    card.querySelector(".btn-video").onclick = () => window.open(exercicio.video, "_blank");
 
-  if (treino === 'supino inclinado') {
-      adicionarTreino(
-          'Supino Inclinado',
-          'Deite no banco inclinado, segure a barra, abaixe até o peito e empurre de volta',
-          '3 séries de 10 repetições',
-          'Peso: Moderado',
-          './img/supino.png',
-          'https://youtube.com/shorts/NrurrUZ9bfw?si=lxbkKnMSPIyEiP7l'
-      );
-  } else if (treino === 'agachamento livre') {
-      adicionarTreino(
-          'Agachamento Livre',
-          'Fique em pé com os pés na largura dos ombros, agache mantendo as costas retas e volte à posição inicial',
-          '4 séries de 12 repetições',
-          'Peso: Leve a Moderado',
-          './img/agachamento.png',
-          'https://youtube.com/shorts/8V2SwkHTLek?si=LeS0jGNWqUOoJT-P'
-      );
-  } else if (treino === 'peck deck'){ 
-        adicionarTreino(
-            'Peck Deck',
-            'Sente-se na máquina, posicione os braços nas almofadas e junte-os à frente do peito',
-            '3 séries de 12-15 repetições',
-            'Peso: Leve a Moderado',
-            './img/peck-deck.png',
-            'https://youtube.com/shorts/rOrr4kSwQpE?si=JmpAGKgH7b3e3dot'
-        );
-  } else if (treino === 'desenvolvimento com halteres'){ 
-        adicionarTreino(
-            'Desenvolvimento com Halteres',
-            'Sente-se em um banco com encosto, segure os halteres na altura dos ombros e empurre-os para cima até estender os braços',
-            '3 séries de 10-12 repetições',
-            'Peso: Moderado',
-            './img/desenvolvimento.png',
-            'https://youtube.com/shorts/Wywt3mN-6RA?si=OVi7fczoJfgBDwle'
-        );
-  } else if (treino === 'levantamento terra'){ 
-        adicionarTreino(
-            'Levantamento Terra',
-            'Com a barra no chão, mantenha as costas retas, levante a barra estendendo os quadris e joelhos, depois abaixe lentamente',
-            '4 séries de 6-8 repetições',
-            'Peso: Pesado',
-            './img/terra.png',
-            'https://youtube.com/shorts/oSaXuwqLpWc?si=jZjfumXlELBCZCmJ'
-        );
-    } else if (treino === 'barra fixa') { 
-        adicionarTreino(
-            'Barra Fixa',
-            'Segure a barra com as palmas das mãos voltadas para frente, puxe o corpo para cima até o queixo ultrapassar a barra e abaixe lentamente',
-            '3 séries de 8-10 repetições',
-            'Peso: Peso Corporal',
-            './img/barra.png',
-            'https://youtube.com/shorts/BYYxtz9MtDc?si=G9_F307teGa4smK8'
-        );
-    } else if (treino === 'flexão de braço' || treino === 'flexao de braco' || treino === 'flexao de braço' || treino === 'flexão de braco') {    
-        adicionarTreino(
-            'Flexão de Braço',
-            'Deite-se de barriga para baixo, coloque as mãos no chão na largura dos ombros, empurre o corpo para cima e abaixe novamente',
-            '4 séries de 12-15 repetições',
-            'Peso: Peso Corporal',
-            './img/flexao.png',
-            'https://youtube.com/shorts/pRzxpe5_LLk?si=BHjJ6aWQ-tfgd-1w'  
-        );
-    } else if (treino === 'abdominal crunch' || treino === 'abdominal') {
-        adicionarTreino(
-            'Abdominal',
-            'Deite-se de costas com os joelhos dobrados, levante a parte superior do corpo em direção aos joelhos e volte à posição inicial',
-            '3 séries de 15-20 repetições',
-            'Peso: Peso Corporal',
-            './img/abdominal.png',
-            'https://youtube.com/shorts/kiqKO0tTFVw?si=XryMhiVBmkr12nJC'
-        );
-    } else if (treino === 'prancha') {
-        adicionarTreino(
-            'Prancha',
-            'Deite-se de bruços, levante o corpo apoiando-se nos antebraços e pontas dos pés, mantendo o corpo reto',
-            '3 séries de 30-60 segundos',
-            'Peso: Peso Corporal',
-            './img/prancha.png',
-            'https://youtube.com/shorts/jZY0XzzXleI?si=9CLTzjWM7PD0jkky'
-        );
-    } else if (treino === 'pull-over com halteres' || treino === 'pull over com halteres' || treino === 'pull-over com halter' || treino === 'pull over com halter') { 
-        adicionarTreino(
-            'Pull-Over com Halteres',
-            'Deite-se em um banco, segure um haltere com ambas as mãos acima do peito, abaixe-o lentamente atrás da cabeça e retorne à posição inicial',
-            '3 séries de 10-12 repetições',
-            'Peso: Moderado',
-            './img/pull-over.png',
-            'https://youtube.com/shorts/Datv2L6t3-4?si=poTimOvBD5gY4-Zt'
-        );
-    } else if (treino === 'elevação lateral de ombros com halteres' || treino === 'elevacao lateral de ombros com halteres' || treino === 'elevacão lateral de ombros com halter' || treino === 'elevaçao lateral de ombros com halter' || treino === 'elevação lateral' || treino === 'elevacao lateral' || treino === 'elevaçao lateral' || treino === 'elevacão lateral') { 
-        adicionarTreino(
-            'Elevação Lateral de Ombros com Halteres',
-            'Fique em pé segurando halteres ao lado do corpo, levante-os lateralmente até a altura dos ombros e abaixe lentamente',
-            '3 séries de 12-15 repetições',
-            'Peso: Leve a Moderado',
-            './img/lateral.png',
-            'https://youtube.com/shorts/nhQ4mdk0TmM?si=86dPDwEEfiEen18l'
-        );
-    } else if (treino === 'rosca direta com barra') {   
-        adicionarTreino(
-            'Rosca Direta com Barra',
-            'Segure a barra com as palmas das mãos voltadas para cima, levante a barra em direção aos ombros e abaixe lentamente',
-            '3 séries de 10-12 repetições',
-            'Peso: Moderado',
-            './img/rosca.png',
-            'https://youtube.com/shorts/ojlJslnaae4?si=R8wug0pa47gCvCcj'
-        );
+    // Botão adicionar
+    const btnAdicionar = card.querySelector(".btn-adicionar");
+    if (comAdicionar) {
+        btnAdicionar.onclick = () => {
+            const clone = criarCard(exercicio, false);
+            areaTreino.appendChild(clone);
+        };
     } else {
-      alert('Treino não encontrado. Tente novamente.');
-  }
-});
-
-
-// ===========================
-// MENU HAMBÚRGUER RESPONSIVO
-// ===========================
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Criar elementos do menu hambúrguer
-    const headerFlex = document.querySelector('.header-flex');
-    const hamburger = document.createElement('div');
-    hamburger.className = 'hamburger';
-    
-    for (let i = 0; i < 3; i++) {
-        const span = document.createElement('span');
-        hamburger.appendChild(span);
+        btnAdicionar.remove();
     }
-    
-    // Inserir o hambúrguer antes do logo (ou ajuste conforme necessário)
-    const logo = document.querySelector('.logo');
-    headerFlex.insertBefore(hamburger, logo.nextSibling);
-    
-    // Adicionar funcionalidade ao menu hambúrguer
-    hamburger.addEventListener('click', function() {
-        this.classList.toggle('active');
-        document.querySelector('nav').classList.toggle('active');
-        document.body.style.overflow = document.querySelector('nav').classList.contains('active') ? 'hidden' : '';
+
+    // Botão remover
+    card.querySelector(".btn-remover").onclick = (e) => e.target.closest(".card").remove();
+
+    return card;
+}
+
+// Mostrar todos os exercícios
+window.onload = () => {
+    listaProcurados.innerHTML = "";
+    exercicios.forEach(ex => {
+        const card = criarCard(ex, true);
+        listaProcurados.appendChild(card);
     });
-    
-    // Fechar menu ao clicar em um link
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            document.querySelector('nav').classList.remove('active');
-            document.body.style.overflow = '';
-        });
+};
+
+// Buscar exercícios
+procurar.onclick = () => {
+    const termo = normalizarTexto(treinoInput.value.trim());
+    listaProcurados.innerHTML = "";
+
+    const resultados = exercicios.filter(ex => normalizarTexto(ex.nome).includes(termo));
+
+    if (resultados.length === 0) {
+        alert("Nenhum exercício encontrado.");
+        return;
+    }
+
+    resultados.forEach(ex => {
+        const card = criarCard(ex, true);
+        listaProcurados.appendChild(card);
     });
-    
-    // Fechar menu ao clicar fora (para telas grandes)
-    document.addEventListener('click', function(event) {
-        const nav = document.querySelector('nav');
-        const isClickInsideNav = nav.contains(event.target);
-        const isClickOnHamburger = hamburger.contains(event.target);
-        
-        if (!isClickInsideNav && !isClickOnHamburger && nav.classList.contains('active')) {
-            hamburger.classList.remove('active');
-            nav.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-});
+};

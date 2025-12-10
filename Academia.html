@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academia - Kronos</title>
+    <title>Academia - SportLife Hub</title>
 
     <!-- Fonte Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,18 +20,18 @@
 
 <body>
 <header class="header">
-    <div class="container header-flex">
-        <div class="logo">Kronos</div>
+     <div class="container header-flex">
+        <div class="logo">
+           <img src="./img/logo.png" alt="logo" class="logo-img">
+           <span class="logo-text">KRONOS</span>
+        </div>
 
-        <!-- Botão hamburguer fora do nav -->
-        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu">
-            <i class="bi bi-list"></i>
-        </button>
 
         <nav id="main-nav">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu">
+                <i class="bi bi-list"></i>
+            </button>
             <a href="index.html">Início</a>
-            <a href="quem-somos.html">Quem Somos</a>
-            <a href="Academia.html" class="active">Academias</a>
             <a href="calorias.html">Medir Kal</a>
             <a href="listaDeTreino.html">Montar Treino</a>
         </nav>
@@ -88,12 +88,16 @@
 
 </div>
 
+<!-- JS -->
+<script src="script.js"></script>
+<script src="menu.js"></script>
+</body>
 <footer class="footer">
     <div class="footer-container">
 
         <!-- Coluna 1: Logo e Descrição -->
         <div class="footer-col">
-            <h2 class="footer-logo">Kronos</h2>
+            <h2 class="footer-logo">KRONOS</h2>
             <p>
                 Plataforma simples e funcional para cálculo de calorias, dietas e treinos.
             </p>
@@ -115,7 +119,7 @@
         <div class="footer-col">
             <h3>Contato</h3>
             <p>
-                📧 contato@kronos.com <br>
+                📧 contato@kronosacademia.com <br>
                 📞 (00) 0000-0000 <br>
                 📍 Rua Exemplo, 123 – Cidade/UF
             </p>
@@ -124,12 +128,7 @@
     </div>
 
     <div class="footer-bottom">
-        © 2025 Kronos — Todos os direitos reservados.
+        © 2025 KRONOS Academia — Todos os direitos reservados.
     </div>
 </footer>
-
-<!-- JS -->
-<script src="academia.js"></script>
-<script src="menu.js"></script>
-</body>
 </html>

@@ -8,44 +8,69 @@
 </head>
 <body>
 
-<header class="header">
-    <div class="header-container header-flex">
-        <div class="logo">Kronos</div>
 
-        <nav>
+<header class="header">
+     <div class="container header-flex">
+        <div class="logo">
+           <img src="./img/logo.png" alt="logo" class="logo-img">
+           <span class="logo-text">KRONOS</span>
+        </div>
+
+
+        <nav id="main-nav">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu">
+                <i class="bi bi-list"></i>
+            </button>
             <a href="index.html">Início</a>
-            <a href="quem-somos.html">Quem Somos</a>
             <a href="Academia.html">Academias</a>
             <a href="calorias.html">Medir Kal</a>
-            <a href="listaDeTreino.html">Montar Treino</a>
+           
         </nav>
     </div>
 </header>
 
-<div class="page-container">
+<div class="container">
 
-    <!-- CAMPO DE BUSCA -->
+    <!-- Campo de busca -->
     <div class="search-container">
         <input type="text" id="treino" placeholder="Digite o exercício...">
         <button id="procurarTreino">Procurar</button>
     </div>
 
-    <!-- RESULTADOS DA BUSCA -->
-    <h2 class="gradient-text">Resultados da busca</h2>
+    <!-- Resultados da busca -->
+    <h2 class="gradient-text">Exercícios</h2>
     <div id="procurados" class="lista"></div>
 
-    <!-- TREINOS ADICIONADOS -->
+    <!-- Treinos adicionados -->
     <h2 class="gradient-text">Seu treino</h2>
     <div id="treino2" class="lista"></div>
 
 </div>
 
+<!-- Template de card -->
+<template id="card-template">
+    <div class="card">
+        <img class="card-img" src="" alt="Exercício">
+        <h3 class="card-nome"></h3>
+        <p class="card-desc"></p>
+        <p class="card-series"></p>
+        <p class="card-obs"></p>
+        <div class="card-buttons">
+            <button class="btn-card btn-video">Vídeo</button>
+            <button class="btn-card btn-adicionar">Adicionar</button>
+            <button class="btn-card btn-remover">Remover</button>
+        </div>
+    </div>
+</template>
+
+<script src="listaDeTreino.js"></script>
+</body>
 <footer class="footer">
     <div class="footer-container">
 
         <!-- Coluna 1: Logo e Descrição -->
         <div class="footer-col">
-            <h2 class="footer-logo">Kronos</h2>
+            <h2 class="footer-logo">KRONOS</h2>
             <p>
                 Plataforma simples e funcional para cálculo de calorias, dietas e treinos.
             </p>
@@ -67,7 +92,7 @@
         <div class="footer-col">
             <h3>Contato</h3>
             <p>
-                📧 contato@kronos.com <br>
+                📧 contato@kronosacademia.com <br>
                 📞 (00) 0000-0000 <br>
                 📍 Rua Exemplo, 123 – Cidade/UF
             </p>
@@ -76,10 +101,7 @@
     </div>
 
     <div class="footer-bottom">
-        © 2025 Kronos — Todos os direitos reservados.
+        © 2025 KRONOS Academia — Todos os direitos reservados.
     </div>
 </footer>
-
-<script src="listaDeTreino.js"></script>
-</body>
 </html>
